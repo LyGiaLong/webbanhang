@@ -47,7 +47,7 @@
                 </div>
                 <hr class="bg-light my-4">
                 <div class="text-center">
-                    <p class="mb-0">© 2025 Web Bán Hàng. All rights reserved.</p>
+                    <p class="mb-0">© 2025 Iphone Store. All rights reserved.</p>
                     <div class="social-icons mt-2">
                         <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>

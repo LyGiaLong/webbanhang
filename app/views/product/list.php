@@ -2,19 +2,19 @@
 
 <div class="container py-5">
     <!-- Banner Section -->
-    <div id="bannerCarousel" class="carousel slide mb-5" data-ride="carousel">
+    <!-- <div id="bannerCarousel" class="carousel slide mb-5" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://template.canva.com/EAFqHtD5eto/2/0/800w-ShkFwAq8YDk.jpg" class="d-block w-100 rounded shadow-sm" alt="Banner 1">
+                <img src="https://tintuc.dienthoaigiakho.vn/wp-content/uploads/2022/04/1200x628_Banner-KM-2.png" class="d-block w-100 rounded shadow-sm" alt="Banner 1">
             </div>
             <div class="carousel-item">
-                <img src="https://template.canva.com/EAGLd7U_4sg/8/0/800w-GBiKE03PQ44.jpg" class="d-block w-100 rounded shadow-sm" alt="Banner 2">
+                <img src="https://www.homecredit.vn/static/cdf3446968e365f4f8fbc9266010e77a/ab7c8/mua_tra_gop_iphone_16_banner_74273b74f0.webp" class="d-block w-100 rounded shadow-sm" alt="Banner 2">
             </div>
             <div class="carousel-item">
-                <img src="https://template.canva.com/EAGQmlnTUhg/1/0/800w-uwqoOAelBwc.jpg" class="d-block w-100 rounded shadow-sm" alt="Banner 3">
+                <img src="https://happyphone.vn/wp-content/uploads/2024/12/Banner-The-le-Sale-Iphone-11-va-15.webp" class="d-block w-100 rounded shadow-sm" alt="Banner 3">
             </div>
             <div class="carousel-item">
-                <img src="https://template.canva.com/EAFjuLtNtvc/2/0/800w-JClygUx_-Ow.jpg" class="d-block w-100 rounded shadow-sm" alt="Banner 4">
+                <img src="https://mobitez.in/wp-content/uploads/2024/10/iPhone-16-Blog-Banner-1.webp" class="d-block w-100 rounded shadow-sm" alt="Banner 4">
             </div>
         </div>
         <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
@@ -25,7 +25,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div> -->
 
     <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap">
         <h1 class="display-5 font-weight-bold text-primary mb-3 mb-md-0">Quản lý Sản phẩm</h1>

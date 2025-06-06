@@ -17,9 +17,9 @@ class CategoryController
         $this->productModel = new ProductModel($this->db);
     }
 
-    private function checkAdminPermission()
+    private function AdminCheck()
     {
-        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+        if (SessionHelper::isAdmin()) {
             $_SESSION['error_message'] = 'Bạn không có quyền truy cập trang này';
             header('Location: /webbanhang/Product'); // Chuyển hướng về trang sản phẩm
             exit();
@@ -29,7 +29,7 @@ class CategoryController
     // Hiển thị danh sách danh mục - CHỈ ADMIN
     public function index()
     {
-        $this->checkAdminPermission(); // Thêm dòng này
+        $this->AdminCheck(); // Thêm dòng này
         $categories = $this->categoryModel->getCategories();
         include 'app/views/category/list.php';
     }
@@ -37,7 +37,7 @@ class CategoryController
     // Hiển thị chi tiết danh mục - CHỈ ADMIN
     public function show($id)
     {
-        $this->checkAdminPermission(); // Thêm dòng này
+        $this->AdminCheck(); // Thêm dòng này
         $category = $this->categoryModel->getCategoryById($id);
         if ($category) {
             include 'app/views/category/show.php';
@@ -50,7 +50,7 @@ class CategoryController
     // Hiển thị sản phẩm theo danh mục - CHỈ ADMIN
     public function productsByCategory($id)
     {
-        $this->checkAdminPermission(); // Thêm dòng này
+        $this->AdminCheck(); // Thêm dòng này
         $category = $this->categoryModel->getCategoryById($id);
         if ($category) {
             $products = $this->productModel->getProductsByCategory($id);
@@ -64,14 +64,14 @@ class CategoryController
     // Form thêm mới danh mục - CHỈ ADMIN
     public function add()
     {
-        $this->checkAdminPermission();
+        $this->AdminCheck();
         include 'app/views/category/add.php';
     }
 
     // Lưu danh mục mới - CHỈ ADMIN
     public function save()
     {
-        $this->checkAdminPermission();
+        $this->AdminCheck();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'] ?? '';
@@ -92,7 +92,7 @@ class CategoryController
     // Form chỉnh sửa danh mục - CHỈ ADMIN
     public function edit($id)
     {
-        $this->checkAdminPermission();
+        $this->AdminCheck();
         
         $category = $this->categoryModel->getCategoryById($id);
         if ($category) {
@@ -106,7 +106,7 @@ class CategoryController
     // Cập nhật danh mục - CHỈ ADMIN
     public function update()
     {
-        $this->checkAdminPermission();
+        $this->AdminCheck();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'] ?? null;
@@ -129,7 +129,7 @@ class CategoryController
     // Xoá danh mục - CHỈ ADMIN
     public function delete($id)
     {
-        $this->checkAdminPermission();
+        $this->AdminCheck();
         
         // Kiểm tra xem danh mục có sản phẩm không
         $products = $this->productModel->getProductsByCategory($id);

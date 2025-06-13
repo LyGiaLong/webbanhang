@@ -18,9 +18,9 @@ class ProductController
         $this->cartModel = new CartModel($this->db);
     }
     
-    private function AdminCheck()
+    private function checkAdminPermission()
     {
-        if (SessionHelper::isAdmin()) {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
             $_SESSION['error_message'] = 'Bạn không có quyền truy cập chức năng này';
             header('Location: /webbanhang/Product');
             exit();
@@ -56,14 +56,14 @@ class ProductController
 
     public function add()
     {
-        $this->AdminCheck();
+        $this->checkAdminPermission();
         $categories = (new CategoryModel($this->db))->getCategories();
         include_once 'app/views/product/add.php';
     }
 
     public function save()
     {
-        $this->AdminCheck();
+        $this->checkAdminPermission();
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'] ?? '';
@@ -98,7 +98,7 @@ class ProductController
 
     public function edit($id)
     {
-        $this->AdminCheck();
+        $this->checkAdminPermission();
         
         $product = $this->productModel->getProductById($id);
         $categories = (new CategoryModel($this->db))->getCategories();
@@ -113,7 +113,7 @@ class ProductController
 
     public function update()
     {
-        $this->AdminCheck();
+        $this->checkAdminPermission();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
@@ -149,7 +149,7 @@ class ProductController
 
     public function delete($id)
     {
-        $this->AdminCheck();
+        $this->checkAdminPermission();
         
         if ($this->productModel->deleteProduct($id)) {
             $_SESSION['success_message'] = 'Xóa sản phẩm thành công';

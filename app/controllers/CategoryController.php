@@ -72,7 +72,7 @@ class CategoryController
     public function save()
     {
         $this->AdminCheck();
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'] ?? '';
 
@@ -93,7 +93,7 @@ class CategoryController
     public function edit($id)
     {
         $this->AdminCheck();
-        
+
         $category = $this->categoryModel->getCategoryById($id);
         if ($category) {
             include 'app/views/category/edit.php';
@@ -107,7 +107,7 @@ class CategoryController
     public function update()
     {
         $this->AdminCheck();
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'] ?? null;
             $name = $_POST['name'] ?? '';
@@ -130,7 +130,7 @@ class CategoryController
     public function delete($id)
     {
         $this->AdminCheck();
-        
+
         // Kiểm tra xem danh mục có sản phẩm không
         $products = $this->productModel->getProductsByCategory($id);
         if (count($products) > 0) {
